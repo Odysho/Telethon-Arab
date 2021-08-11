@@ -99,10 +99,16 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"**▾∮مرحبا عزيزي ↫** {mention} \n**انا البوت المساعد لــ** {my_mention}\n**يمكنك مراسلة صاحب البوت عن طريقي.**"
+            start_msg = f"**⌔︙ اهلا وسهلا اخوي  {mention} **\
+                        \n**⌔︙ {my_mention}'انا البوت المساعد .**\
+                        \n**⌔︙ يمكنك التواصل مع صاحب البوت فقط ارسل رسالتك 👤.**\
+                        \n\n**⌔︙ البوت خاص بسورس :** [TELETHON FOR ARABS](https://t.me/M4_STORY)"
         buttons = [
             (
-                Button.url("المطور", "https://t.me/NNEEE),
+                Button.url("تنصيب سورسنا", "https://heroku.com/deploy?template=https://github.com/klanrali/Telethon-Arab-helper"),
+                Button.url(
+                    "قناه المساعد",
+                    "https://t.me/yzzzy",
                 ),
             )
         ]
