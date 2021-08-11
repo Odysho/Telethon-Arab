@@ -48,10 +48,10 @@ async def check_bot_started_users(user, event):
     check = get_starter_details(user.id)
     if check is None:
         start_date = str(datetime.now().strftime("%B %d, %Y"))
-        notification = f"**▾∮مرحبا عزيزي ↸**\n**▾ قام المستخدم ↫ ** 『 {_format.mentionuser(user.first_name , user.id)} 』 \n**بتشغيل البوت❕**\n\n**▾∮الاسم ⪼** `{get_display_name(user)}`\n**▾∮الايدي  ⪼ **`{user.id}`"
+        notification = f"**▾∮مرحبا عزيزي ↸**\n**▾ قام المستخدم ↫ ** 『{_format.mentionuser(user.first_name , user.id)}』 \n**بتشغيل البوت❕**\n\n**▾∮الاسم ⪼** `{get_display_name(user)}`\n**▾∮الايدي ⪼ **`{user.id}`"
     else:
         start_date = check.date
-        notification = f"**▾∮ قام المستخدم ↫ ** 「  {_format.mentionuser(user.first_name , user.id)} 」 \n**بإعادة تشغيل البوت❗️**\n\n**▾∮الاسم ⪼ **`{get_display_name(user)}`\n**▾∮الايدي  ⪼ **`{user.id}`"
+        notification = f"**▾∮ قام المستخدم ↫ ** 「{_format.mentionuser(user.first_name , user.id)}」 \n**بإعادة تشغيل البوت❗️**\n\n**▾∮الاسم ⪼ **`{get_display_name(user)}`\n**▾∮الايدي ⪼ ** `{user.id}`"
     try:
         add_starter_to_db(user.id, get_display_name(user), start_date, user.username)
     except Exception as e:
@@ -99,16 +99,12 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"**⌔︙ اهلا وسهلا اخوي  {mention} **\
-                        \n**⌔︙ {my_mention}'انا البوت المساعد .**\
-                        \n**⌔︙ يمكنك التواصل مع صاحب البوت فقط ارسل رسالتك 👤.**\
-                        \n\n**⌔︙ البوت خاص بسورس :** [TELETHON FOR ARABS](https://t.me/M4_STORY)"
+            start_msg = f"**▾∮ مرحبا عزيزي ↫ **{mention}\n**▾∮انا البوت المساعد لــ ↫ **{my_mention}\n**يمكنك مراسلة صاحب البوت من خلالي**\n**[▾∮ՏøuƦcε πøνεʍβεƦ 🌦]** (http://t.me/NNEEE)"
         buttons = [
             (
-                Button.url("تنصيب سورسنا", "https://heroku.com/deploy?template=https://github.com/klanrali/Telethon-Arab-helper"),
                 Button.url(
-                    "قناه المساعد",
-                    "https://t.me/yzzzy",
+                    "مطور السورس",
+                    "https://t.me/oorrr",
                 ),
             )
         ]
