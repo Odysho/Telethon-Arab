@@ -29,12 +29,12 @@ cmhd = Config.COMMAND_HAND_LER
 
 
 @iqthon.iq_cmd(
-    pattern=f"^اوامري$",
+    pattern=f"^/مساعدة$",
     from_users=Config.OWNER_ID,
 )
 async def bot_help(event):
     await event.reply(
-        f"""**▾∮ قائـمه اوامر المطور ↶**\N* `لا يمكن استخدامها خارج البوت ↫ `{botusername}
+        f"""**▾∮ قائـمه اوامر المطور ↶**\n* `لا يمكن استخدامها خارج البوت ↫ `{botusername}
 
 
 **1︙** `/اذاعة`  + الرد على رساله ⤵️
