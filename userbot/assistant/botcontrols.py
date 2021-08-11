@@ -29,16 +29,16 @@ cmhd = Config.COMMAND_HAND_LER
 
 
 @iqthon.iq_cmd(
-    pattern=f"^/مساعدة$",
+    pattern=f"^اوامري$",
     from_users=Config.OWNER_ID,
 )
 async def bot_help(event):
     await event.reply(
         f"""**▾∮ قائـمه اوامر المطور ↶**\n* `تستخدم في ↫ `{botusername} `فقط!`
 
-/info\n**▾∮قم بالرد ع المستخدم لجلب معلوماتة ↻**\n`* يساعد ع معرفة الملصقات المرسلة ✓`\n\n
-/ban\n**▾∮قم بالرد ع المستخدم واعطاؤه السبب او ↶**\n**/ban @nneee +**\nالسبب`* لحظر المستخدم من البوت`\n\n
-/unban\n**▾∮الامر والمعرف والسبب (اختياري) ↶**\n**/unban @nneee +**\nالسبب اختياري`* لحظر المستخدم من البوت`\n\n
+/info\n**▾∮قم بالرد ع المستخدم لجلب معلوماتة ↶**\n`* يساعد ع معرفة الملصقات المرسلة ✓`\n\n
+/ban\n**▾∮قم بالرد ع المستخدم واعطاؤه السبب او ↶**\n**/ban @nneee +**السبب`* لحظر المستخدم من البوت`\n\n
+/unban\n**▾∮الامر والمعرف والسبب (اختياري) ↶**\n**/unban @nneee + السبب اختياري**\n`لحظر المستخدم من البوت`\n\n
 
 **1︙** `/اذاعة`  + الرد على رساله ⤵️
 ⌔︙ اذاعه الرساله لجميع مراسلين بوتك عبر ارسالهم الرساله الى الخاص . 
@@ -59,7 +59,7 @@ async def bot_help(event):
 
 
 @iqthon.iq_cmd(
-    pattern=f"^/اذاعة$",
+    pattern=f"^/cast$",
     from_users=Config.OWNER_ID,
 )
 async def bot_broadcast(event):
