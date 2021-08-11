@@ -170,9 +170,9 @@ async def bot_pms(event):  # sourcery no-metrics
                         user_id, event.text, reply_to=reply_msg
                     )
             except UserIsBlockedError:
-                return await event.reply("**▾ قام المستخدم ↫ ** 『{mention}』 **بحظر البوت❕**")
+                return await event.reply("**▾ قام المستخدم بحظر البوت❗️**")
             except Exception as e:
-                return await event.reply(f"**Error:**\n`{str(e)}`")
+                return await event.reply(f"**▾∮ حدث خطأ!**\n`{str(e)}`")
             try:
                 add_user_to_db(
                     reply_to, user_name, user_id, reply_msg, event.id, msg.id
@@ -182,7 +182,7 @@ async def bot_pms(event):  # sourcery no-metrics
                 if BOTLOG:
                     await event.client.send_message(
                         BOTLOG_CHATID,
-                        f"**Error**\nWhile storing messages details in database\n`{str(e)}`",
+                        f"**Error**\nWhile storing messages details in database\n`{str(e)}`", #بعدين
                     )
 
 
@@ -203,7 +203,7 @@ async def bot_pms_edit(event):  # sourcery no-metrics
         if reply_msg:
             await event.client.send_message(
                 Config.OWNER_ID,
-                f"⬆️ **This message was edited by the user** {_format.mentionuser(get_display_name(chat) , chat.id)} as :",
+                f"▾∮ قام المستخدم ↫  「{_format.mentionuser(get_display_name(chat) , chat.id)}」 بتعديل الرسالة⇅",
                 reply_to=reply_msg,
             )
             msg = await event.forward_to(Config.OWNER_ID)
@@ -237,46 +237,6 @@ async def bot_pms_edit(event):  # sourcery no-metrics
                 except Exception as e:
                     LOGS.error(str(e))
 
-
-@tgbot.on(events.MessageDeleted)
-async def handler(event):
-    for msg_id in event.deleted_ids:
-        users_1 = get_user_reply(msg_id)
-        users_2 = get_user_logging(msg_id)
-        if users_2 is not None:
-            result_id = 0
-            for usr in users_2:
-                if msg_id == usr.logger_id:
-                    user_id = int(usr.chat_id)
-                    result_id = usr.result_id
-                    break
-            if result_id != 0:
-                try:
-                    await event.client.delete_messages(user_id, result_id)
-                except Exception as e:
-                    LOGS.error(str(e))
-        if users_1 is not None:
-            reply_msg = None
-            for user in users_1:
-                if user.chat_id != Config.OWNER_ID:
-                    reply_msg = user.message_id
-                    break
-            try:
-                if reply_msg:
-                    users = get_user_id(reply_msg)
-                    for usr in users:
-                        user_id = int(usr.chat_id)
-                        user_name = usr.first_name
-                        break
-                    if check_is_black_list(user_id):
-                        return
-                    await event.client.send_message(
-                        Config.OWNER_ID,
-                        f"⬆️ **This message was deleted by the user** {_format.mentionuser(user_name , user_id)}.",
-                        reply_to=reply_msg,
-                    )
-            except Exception as e:
-                LOGS.error(str(e))
 
 
 @iqthon.bot_cmd(
