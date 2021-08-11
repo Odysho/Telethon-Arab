@@ -165,7 +165,8 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         return repo.__del__()
     build_status = heroku_app.builds(order_by="created_at", sort="desc")[0]
     if build_status.status == "failed":
-        return await edit_Delete(event, "`Build failed!\n" "**⌔︙تم الإلغاء أو كانت هناك بعض الأخطاء...**"
+        return await edit_Delete(
+            event, "`Build failed!\n" "**⌔︙تم الإلغاء أو كانت هناك بعض الأخطاء...**"
         )
     try:
         remote.push("master:main", force=True)
@@ -280,7 +281,7 @@ async def upstream(event):
 )
 async def upstream(event):
     event = await edit_or_reply(event, "**⌔︙جـاري تحديث والاسترداد  يرجـى الإنتظـار ↯**")
-    off_repo = "https://github.com/Odysho/Telethon-Arab"
+    off_repo = "https://github.com/Odysho/Telethon-Arab-helper"
     os.chdir("/app")
     try:
         txt = "**⌔︙ عـذرًا، لا يمڪـن لبرنامـج التحديـث المتابعـة بسـبب ϟ**"
