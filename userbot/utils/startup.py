@@ -63,9 +63,9 @@ async def startupmessage():
         if BOTLOG:
             Config.CATUBLOGO = await iqthon.tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://telegra.ph/file/0366b6cd478d7dcef8ecd.jpg",
-                caption="**⌔︙ اهلا وسهلا لقد قمت بتنصيب تليثون العرب\n لـ قنـاه السـورس @IQTHON\nلـ أوامـر السورس @YZZZY **",
-                buttons=[(Button.url("مطـور السورس", "https://t.me/KLANR"),)],
+                "https://telegra.ph/file/ac1a7db2e66ab5b16da5c.jpg",
+                caption="**⌔∮مرحبا عزيزي ↸\n⌔↫ قمت بتنصيب تـليثـون نـوفـمبـر الان!\n⌔∮⪼ [ՏøuƦcε πøνεʍβεƦ 🌦](t.me/NNEEE)**",
+                buttons=[(Button.url("مطـور السورس", "https://t.me/oorrr"),)],
             )
     except Exception as e:
         LOGS.error(e)
