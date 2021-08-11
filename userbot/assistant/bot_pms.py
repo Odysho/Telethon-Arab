@@ -48,12 +48,10 @@ async def check_bot_started_users(user, event):
     check = get_starter_details(user.id)
     if check is None:
         start_date = str(datetime.now().strftime("%B %d, %Y"))
-        notification = f"**https://telegra.ph/file/8f99ac94ae6a90d36f028.jpg\n⌔∮مرحبا عزيزي ↸**\n\n**المستخدم ↫**{_format.mentionuser(user.first_name , user.id)} بدأ بتشغيل البوت! ✓\n**⌔∮الاسم ⪼**{get_display_name(user)}\n **⌔∮ايدي المستخدم ⪼ **`{user.id}`"
+        notification = f"**▾∮مرحبا عزيزي ↸**\n**▾∮ قام المستخدم ↫ ** 『 {_format.mentionuser(user.first_name , user.id)} 』 **بتشغيل البوت❕**\n\n**▾∮الاسم ⪼**{get_display_name(user)}\n**▾∮الايدي  ⪼ **`{user.id}`"
     else:
         start_date = check.date
-        notification = f"👤 {_format.mentionuser(user.first_name , user.id)} has restarted me.\
-                \n**ID: **`{user.id}`\
-                \n**Name: **{get_display_name(user)}"
+        notification = f"**▾∮ قام المستخدم ↫ ** 『 {_format.mentionuser(user.first_name , user.id)} 』 **بإعادة تشغيل البوت❗️**\n\n**▾∮الاسم ⪼**{get_display_name(user)}\n**▾∮الايدي  ⪼ **`{user.id}`"
     try:
         add_starter_to_db(user.id, get_display_name(user), start_date, user.username)
     except Exception as e:
