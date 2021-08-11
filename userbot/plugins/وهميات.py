@@ -79,7 +79,7 @@ async def _(event):
 
 
 @iqthon.iq_cmd(
-    pattern="prankpromote(?:\s|$)([\s\S]*)",
+    pattern="لقب(?:\s|$)([\s\S]*)",
     command=("prankpromote", plugin_category),
     info={
         "header": "To promote a person without admin rights",
@@ -111,7 +111,7 @@ async def _(event):
 
 
 @iqthon.iq_cmd(
-    pattern="padmin$",
+    pattern="رفع ا$",
     command=("padmin", plugin_category),
     info={
         "header": "Fun animation for faking user promotion",
@@ -128,22 +128,22 @@ async def _(event):
     animation_chars = [
         "**Promoting User As Admin...**",
         "**Enabling All Permissions To User...**",
-        "**(1) Send Messages: ☑️**",
-        "**(1) Send Messages: ✅**",
-        "**(2) Send Media: ☑️**",
-        "**(2) Send Media: ✅**",
-        "**(3) Send Stickers & GIFs: ☑️**",
-        "**(3) Send Stickers & GIFs: ✅**",
-        "**(4) Send Polls: ☑️**",
-        "**(4) Send Polls: ✅**",
-        "**(5) Embed Links: ☑️**",
-        "**(5) Embed Links: ✅**",
-        "**(6) Add Users: ☑️**",
-        "**(6) Add Users: ✅**",
-        "**(7) Pin Messages: ☑️**",
-        "**(7) Pin Messages: ✅**",
-        "**(8) Change Chat Info: ☑️**",
-        "**(8) Change Chat Info: ✅**",
+        "**⪼ (1) ارسال رسائل : ✘**",
+        "**⪼ (1) تم السماح ارسال الرسائل : ✓**",
+        "**⪼ (2) ارسال الوسائط : ✘**",
+        "**⪼ (2) تم السماح ارسال الوسائط : ✓**",
+        "**⪼ (3) ارسال ملصقات ومتحركات : ✘**",
+        "**⪼ (3) تم السماح بارسال ملصقات ومتحركات : ✓**",
+        "**⪼ (4) ارسال الاستفتاءات : ✘**",
+        "**⪼ (4) تم السماح بارسال الاستفتاءات : ✓**",
+        "**⪼ (5) ارسال الروابط : ✘**",
+        "**⪼ (5)  تم المساح بارسال الروابط : ✓**",
+        "**⪼ (6) اضافة اعضاء : ✘**",
+        "**⪼ (6) تم السماح بإضافة الاعضاء : ✓**",
+        "**⪼ (7)  تثبيت الرسائل : ✘**",
+        "**⪼ (7) تم السماح بالتثبيت : ✓**",
+        "**⪼ (8) تغيير معلومات المجموعة : ✘**",
+        "**⪼ (8) تم السماح بتغير معلومات المجموعة: ✓**",
         "**Permission Granted Successfully**",
         f"**pRoMooTeD SuCcEsSfUlLy bY: {ALIVE_NAME}**",
     ]
