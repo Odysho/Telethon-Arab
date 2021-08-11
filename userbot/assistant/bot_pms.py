@@ -237,19 +237,59 @@ async def bot_pms_edit(event):  # sourcery no-metrics
                 except Exception as e:
                     LOGS.error(str(e))
 
+@tgbot.on(events.MessageDeleted)
+async def handler(event):
+    for msg_id in event.deleted_ids:
+        users_1 = get_user_reply(msg_id)
+        users_2 = get_user_logging(msg_id)
+        if users_2 is not None:
+            result_id = 0
+            for usr in users_2:
+                if msg_id == usr.logger_id:
+                    user_id = int(usr.chat_id)
+                    result_id = usr.result_id
+                    break
+            if result_id != 0:
+                try:
+                    await event.client.delete_messages(user_id, result_id)
+                except Exception as e:
+                    LOGS.error(str(e))
+        if users_1 is not None:
+            reply_msg = None
+            for user in users_1:
+                if user.chat_id != Config.OWNER_ID:
+                    reply_msg = user.message_id
+                    break
+            try:
+                if reply_msg:
+                    users = get_user_id(reply_msg)
+                    for usr in users:
+                        user_id = int(usr.chat_id)
+                        user_name = usr.first_name
+                        break
+                    if check_is_black_list(user_id):
+                        return
+                    await event.client.send_message(
+                        Config.OWNER_ID,
+                f"▾∮ قام المستخدم ↫  「{_format.mentionuser(get_display_name(chat) , chat.id)}」 بحذف الرسالة ↧",
+                        reply_to=reply_msg,
+                    )
+            except Exception as e:
+                LOGS.error(str(e))
+
 
 
 @iqthon.bot_cmd(
-    pattern=f"^/uinfo$",
+    pattern=f"^info$",
     from_users=Config.OWNER_ID,
 )
 async def bot_start(event):
     reply_to = await reply_id(event)
     if not reply_to:
-        return await event.reply("Reply to a message to get message info")
+        return await event.reply("**▾∮قم بالرد ع رسالة المستخدم لجلب المعلومات!**")
     info_msg = await event.client.send_message(
         event.chat_id,
-        "`🔎 Searching for this user in my database ...`",
+        "**▾∮ سأجلب المعلومات من قاعدة بياناتي ✓",
         reply_to=reply_to,
     )
     users = get_user_id(reply_to)
@@ -265,9 +305,7 @@ async def bot_start(event):
         return await info_msg.edit(
             "**ERROR:** \n`Sorry !, Can't Find this user in my database :(`"
         )
-    uinfo = f"This message was sent by 👤 {_format.mentionuser(user_name , user_id)}\
-            \n**First Name:** {user_name}\
-            \n**User ID:** `{user_id}`"
+    uinfo = f"**▾∮الاسم ⪼ **`{get_display_name(user)}`\n**▾∮الايدي ⪼ ** `{user.id}`**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
     await info_msg.edit(uinfo)
 
 
