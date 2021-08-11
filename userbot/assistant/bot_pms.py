@@ -305,7 +305,7 @@ async def bot_start(event):
         return await info_msg.edit(
             "**ERROR:** \n`Sorry !, Can't Find this user in my database :(`"
         )
-    uinfo = f"**▾∮الاسم ⪼ **`{get_display_name(user)}`\n**▾∮الايدي ⪼ ** `{user.id}`**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
+    uinfo = f"**▾∮الاسم ⪼ **`{user_name}`\n**▾∮الايدي ⪼ **`{user_id}`**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
     await info_msg.edit(uinfo)
 
 
