@@ -48,7 +48,7 @@ async def check_bot_started_users(user, event):
     check = get_starter_details(user.id)
     if check is None:
         start_date = str(datetime.now().strftime("%B %d, %Y"))
-        notification = f"**⌔∮مرحبا عزيزي ↸** {my_mention}\n\n**المستخدم ↫**{_format.mentionuser(user.first_name , user.id)} بدأ بتشغيل البوت! ✓\n**⌔∮الاسم ⪼**{get_display_name(user)}\n **⌔∮ايدي المستخدم ⪼ **`{user.id}`"
+        notification = f"**https://telegra.ph/file/8f99ac94ae6a90d36f028.jpg\n⌔∮مرحبا عزيزي ↸**\n\n**المستخدم ↫**{_format.mentionuser(user.first_name , user.id)} بدأ بتشغيل البوت! ✓\n**⌔∮الاسم ⪼**{get_display_name(user)}\n **⌔∮ايدي المستخدم ⪼ **`{user.id}`"
     else:
         start_date = check.date
         notification = f"👤 {_format.mentionuser(user.first_name , user.id)} has restarted me.\
