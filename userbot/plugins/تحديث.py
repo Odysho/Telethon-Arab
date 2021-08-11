@@ -165,8 +165,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
         return repo.__del__()
     build_status = heroku_app.builds(order_by="created_at", sort="desc")[0]
     if build_status.status == "failed":
-        return await edit_Delete(
-            event, "`Build failed!\n" "**⌔︙تم الإلغاء أو كانت هناك بعض الأخطاء...**"
+        return await edit_Delete(event, "`Build failed!\n" "**⌔︙تم الإلغاء أو كانت هناك بعض الأخطاء...**"
         )
     try:
         remote.push("master:main", force=True)
