@@ -38,7 +38,7 @@ sudo_enabledcmds = sudo_enabled_cmds()
 
 
 class CatUserBotClient(TelegramClient):
-    def iq_cmd(
+    def cat_cmd(
         self: TelegramClient,
         pattern: str or tuple = None,
         info: Union[str, Dict[str, Union[str, List[str], Dict[str, str]]]]
@@ -115,7 +115,7 @@ class CatUserBotClient(TelegramClient):
                     if not disable_errors:
                         if Config.PRIVATE_GROUP_BOT_API_ID == 0:
                             return
-                        date = (datetime.datetime.now()).strftime("%m/%d/%Y, %I:%M:%S")
+                        date = (datetime.datetime.now()).strftime("%m/%d/%Y, %H:%M:%S")
                         ftext = f"\nDisclaimer:\nThis file is pasted only here ONLY here,\
                                   \nwe logged only fact of error and date,\nwe respect your privacy,\
                                   \nyou may not report this error if you've\
@@ -140,16 +140,19 @@ class CatUserBotClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**• ⚜️ | عـذرا يـوجد هنـاك خطـأ لـديك :**\n\n"
+                        text = "**CatUserbot Error report**\n\n"
+                        link = "[here](https://t.me/catuserbot_support)"
+                        text += "If you wanna you can report it"
+                        text += f"- just forward this message {link}.\n"
                         text += (
-                            "**⌔︙قـم بـمراسـلة المطـور لمعـرفة الخطـأ او قـم بـزيارة قنـاة المسـاعدة ** : @YZZZY\n\n"
+                            "Nothing is logged except the fact of error and date\n\n"
                         )
-                        text += f"**⌔︙ الخطـأ الذي لديك هـوة  🆘  : ** [{new['error']}]({pastelink})"
+                        text += f"**Error report : ** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqthon
+            from .session import catub
 
             if not func.__doc__ is None:
                 CMD_INFO[command[0]].append((func.__doc__).strip())
@@ -162,18 +165,18 @@ class CatUserBotClient(TelegramClient):
                     except BaseException:
                         LOADED_CMDS.update({command[0]: [wrapper]})
                 if edited:
-                    iqthon.add_event_handler(
+                    catub.add_event_handler(
                         wrapper,
                         MessageEdited(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                     )
-                iqthon.add_event_handler(
+                catub.add_event_handler(
                     wrapper,
                     NewMessage(pattern=REGEX_.regex1, outgoing=True, **kwargs),
                 )
                 if allow_sudo and gvarstatus("sudoenable") is not None:
                     if command is None or command[0] in sudo_enabledcmds:
                         if edited:
-                            iqthon.add_event_handler(
+                            catub.add_event_handler(
                                 wrapper,
                                 MessageEdited(
                                     pattern=REGEX_.regex2,
@@ -181,7 +184,7 @@ class CatUserBotClient(TelegramClient):
                                     **kwargs,
                                 ),
                             )
-                        iqthon.add_event_handler(
+                        catub.add_event_handler(
                             wrapper,
                             NewMessage(
                                 pattern=REGEX_.regex2,
@@ -197,8 +200,8 @@ class CatUserBotClient(TelegramClient):
                 except BaseException:
                     LOADED_CMDS.update({file_test: [func]})
                 if edited:
-                    iqthon.add_event_handler(func, events.MessageEdited(**kwargs))
-                iqthon.add_event_handler(func, events.NewMessage(**kwargs))
+                    catub.add_event_handler(func, events.MessageEdited(**kwargs))
+                catub.add_event_handler(func, events.NewMessage(**kwargs))
             return wrapper
 
         return decorator
@@ -254,21 +257,24 @@ class CatUserBotClient(TelegramClient):
                         pastelink = await paste_message(
                             ftext, pastetype="s", markdown=False
                         )
-                        text = "**• ⚜️ | عـذرا يـوجد هنـاك خطـأ لـديك :**\n\n"
+                        text = "**CatUserbot Error report**\n\n"
+                        link = "[here](https://t.me/catuserbot_support)"
+                        text += "If you wanna you can report it"
+                        text += f"- just forward this message {link}.\n"
                         text += (
-                            "**⌔︙قـم بـمراسـلة المطـور لمعـرفة الخطـأ او قـم بـزيارة قنـاة المسـاعدة ** : @YZZZY\n\n"
+                            "Nothing is logged except the fact of error and date\n\n"
                         )
-                        text += f"**⌔︙ الخطـأ الذي لديك هـوة  🆘  : ** [{new['error']}]({pastelink})"
+                        text += f"**Error report : ** [{new['error']}]({pastelink})"
                         await check.client.send_message(
                             Config.PRIVATE_GROUP_BOT_API_ID, text, link_preview=False
                         )
 
-            from .session import iqthon
+            from .session import catub
 
             if edited is True:
-                iqthon.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
+                catub.tgbot.add_event_handler(func, events.MessageEdited(**kwargs))
             else:
-                iqthon.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
+                catub.tgbot.add_event_handler(func, events.NewMessage(**kwargs))
 
             return wrapper
 
