@@ -109,8 +109,7 @@ async def bot_start(event):
             )
         ]
     else:
-        start_msg = "**⌔︙ اهلا وسهلا بك ايها المطور ⚜️**\
-            \n⌔︙ لروئيه الاوام الخاصه بالمطور أرسل : `/مساعدة`"
+        start_msg = "**واو! انكَ مطوري 👨‍💻👏**\n**بماذا تريد ان اساعدك ؟ **\n**اليكَ بعض التخصيصات اكتب** `.اوامري`\n\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
         buttons = None
     try:
         await event.client.send_message(
@@ -124,8 +123,7 @@ async def bot_start(event):
         if BOTLOG:
             await event.client.send_message(
                 BOTLOG_CHATID,
-                f"**Error**\nThere was a error while user starting your bot.\
-                \n`{str(e)}`",
+                f"**▾∮حدث خطأ عندما قام المستخدم بتشغيل البوت!**\n`{str(e)}`",
             )
     else:
         await check_bot_started_users(chat, event)
@@ -172,7 +170,7 @@ async def bot_pms(event):  # sourcery no-metrics
                         user_id, event.text, reply_to=reply_msg
                     )
             except UserIsBlockedError:
-                return await event.reply("𝗧𝗵𝗶𝘀 𝗯𝗼𝘁 𝘄𝗮𝘀 𝗯𝗹𝗼𝗰𝗸𝗲𝗱 𝗯𝘆 𝘁𝗵𝗲 𝘂𝘀𝗲𝗿. ❌")
+                return await event.reply("**▾ قام المستخدم ↫ ** 『{mention}』 **بحظر البوت❕**")
             except Exception as e:
                 return await event.reply(f"**Error:**\n`{str(e)}`")
             try:
