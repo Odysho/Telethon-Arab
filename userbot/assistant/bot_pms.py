@@ -355,7 +355,7 @@ async def send_flood_alert(user_) -> None:
             else:
                 await ban_user_from_bot(
                     user_,
-                    f"تم حظرك تلقائيًا لتكرارك ({FloodConfig.AUTOBAN})] رسائل!",
+                    f"حظر تلقائي لتكرارك {FloodConfig.AUTOBAN} رسائل!",
                 )
                 FloodConfig.USERS[user_.id].clear()
                 FloodConfig.ALERT[user_.id].clear()
@@ -398,10 +398,10 @@ async def bot_pm_ban_cb(c_q: CallbackQuery):
     try:
         user = await iqthon.get_entity(user_id)
     except Exception as e:
-        await c_q.answer(f"Error:\n{str(e)}")
+        await c_q.answer(f"**⌔︙عـذرا هنـاك خطـأ 🚫 :**\n{str(e)}")
     else:
-        await c_q.answer(f"Banning UserID -> {user_id} ...", alert=False)
-        await ban_user_from_bot(user, "قمت بتكرار الرسائل!")
+        await c_q.answer(f"جاري حظر المستخدم ↫ `{user_name}`", alert=False)
+        await ban_user_from_bot(user, "لا يسمح بتكرار الرسائل!")
         await c_q.edit(f"▾∮ تم حظر المستخدم بسبب التكرار❗️ ↶**\n**▾∮الاسم ⪼ **`{user_name}`\n**▾∮الايدي ⪼ **`{user_id}`\n**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}")
 
 
@@ -411,7 +411,7 @@ def time_now() -> Union[float, int]:
 
 @pool.run_in_thread
 def is_flood(uid: int) -> Optional[bool]:
-    """Checks if a user is flooding"""
+    "سأعرف ان كان المستخدم يكرر برسائله ㋡"
     FloodConfig.USERS[uid].append(time_now())
     if (
         len(
@@ -437,9 +437,9 @@ def is_flood(uid: int) -> Optional[bool]:
 @check_owner
 async def settings_toggle(c_q: CallbackQuery):
     if gvarstatus("bot_antif") is None:
-        return await c_q.answer(f"**▾∮ تحذير التكرار فعلا غير مفعل ❓**", alert=False)
+        return await c_q.answer(f" تحذير التكرار فعلا غير مفعل ❓", alert=False)
     delgvar("bot_antif")
-    await c_q.answer(f"**▾∮ تم ايقاف تحذير التكرار ❗️**", alert=False)
+    await c_q.answer(f" تم ايقاف تحذير التكرار ❗️", alert=False)
     await c_q.edit("**▾∮ تحذير التكرار غير مفعل الان  ✅**")
 
 
