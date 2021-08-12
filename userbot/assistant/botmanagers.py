@@ -63,14 +63,10 @@ async def ban_user_from_bot(user, reason, reply_to=None):
     except Exception as e:
         LOGS.error(str(e))
     banned_msg = (
-        f"**You have been Banned Forever from using this bot.\nReason** : {reason}"
+        f"**▾∮ تم حظرك الى الابد من البوت ☻✘**\n**▾∮ السبب هو ↫** `{reason}`"
     )
     await iqthon.tgbot.send_message(user.id, banned_msg)
-    info = f"**#Banned_Bot_PM_User**\
-            \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
-            \n**First Name:** {user.first_name}\
-            \n**User ID:** `{user.id}`\
-            \n**Reason:** `{reason}`"
+    info = f"**▾∮ تم حظر المستخدم ❗️↶**\n\n**▾∮ الاسم ⪼ **`{user.first_name}`\n**▾∮ الايدي ⪼ **`{user.id}`\n**▾∮ الرابط ⪼** 「{_format.mentionuser(get_display_name(user) , user.id)}」\n▾∮ سبب الحظر هو  ↫ `{reason}`\n"
     if BOTLOG:
         await iqthon.send_message(BOTLOG_CHATID, info)
     return info
@@ -81,14 +77,11 @@ async def unban_user_from_bot(user, reason, reply_to=None):
         rem_user_from_bl(user.id)
     except Exception as e:
         LOGS.error(str(e))
-    banned_msg = f"**You have been Unbanned from this bot. From now on you can send messages here to contact my master.**"
+    banned_msg = f"**▾∮ تم الغاء حظرك  من البوت ✓**\n**▾∮بامكانك من خلالي التواصل مع المطور**\n**▾∮ السبب هو ↫** `{reason}`\n"
     if reason is not None:
-        banned_msg += f"\n**Reason:** __{reason}__"
+        banned_msg += f"\n**▾∮ السبب هو ↫** __{reason}__"
     await iqthon.tgbot.send_message(user.id, banned_msg)
-    info = f"**#Unbanned_Bot_PM_User**\
-            \n\n👤 {_format.mentionuser(get_display_name(user) , user.id)}\
-            \n**First Name:** {user.first_name}\
-            \n**User ID:** `{user.id}`"
+    info = f"**▾∮ تم الغاء حظر المستخدم √ ↶**\n\n**▾∮ الاسم ⪼ **`{user.first_name}`\n**▾∮ الايدي ⪼ **`{user.id}`\n**▾∮ الرابط ⪼** 「{_format.mentionuser(get_display_name(user) , user.id)}」\n"
     if BOTLOG:
         await iqthon.send_message(BOTLOG_CHATID, info)
     return info
