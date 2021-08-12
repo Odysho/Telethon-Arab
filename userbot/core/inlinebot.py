@@ -274,13 +274,13 @@ async def inline_handler(event):  # sourcery no-metrics
             elif I_IMG:
                 result = builder.document(
                     I_IMG,
-                    title="november Alive",",
+                    title="Alive cat",
                     text=query,
                     buttons=buttons,
                 )
             else:
                 result = builder.article(
-                    title="november Alive",",
+                    title="Alive cat",
                     text=query,
                     buttons=buttons,
                 )
