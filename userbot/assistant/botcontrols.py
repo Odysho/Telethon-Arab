@@ -95,7 +95,7 @@ async def bot_broadcast(event):
     if len(blocked_users) != 0:
         b_info += f"\n<b>▾∮مجموع المستخدمين ↫ «</b><code>{len(blocked_users)}</code><b>» قاموا بحظر البوت ✕ </b>"
     b_info += (
-        f"\n⌔︙⏳  <i>▾∮استغرقت عملية الاذاعة ↫ </i> <code>{time_formatter((end_ - start_).seconds)}</code>"
+        f"\n<i>▾∮استغرقت عملية الاذاعة ↫ </i> <code>{time_formatter((end_ - start_).seconds)}</code>"
     )
     await br_cast.edit(b_info, parse_mode="html")
 
@@ -113,10 +113,10 @@ async def ban_starters(event):
     "To get list of users who started bot."
     ulist = get_all_starters()
     if len(ulist) == 0:
-        return await edit_delete(event, "**⌔︙ لايـوجد اي شخص أستعـمل بوتـك 🚹**")
-    msg = "**⌔︙ الأشخـاص الذيـن اسـتعملو بوتـك 🚻 :\n\n**"
+        return await edit_delete(event, "**▾∮ليس لديك مستخدمين في بوتك!⚠️ **")
+    msg = "**▾∮اليكَ قائمة مستخدمين بوتك 🔖↶**\n\n**"
     for user in ulist:
-        msg += f"• 👤 {_format.mentionuser(user.first_name , user.user_id)}\n**⌔︙ الايدي:** `{user.user_id}`\n**⌔︙ المعرفات:** @{user.username}\n**⌔︙ التاريخ: **__{user.date}__\n\n"
+        msg += f""**▾∮الاسم ⪼ **`{user.user_id}`\n**▾∮الايدي ⪼ **`{user_id}`\n**▾∮المعرف ⪼**\n**▾∮تاريخ الاستخدام ⪼** __{user.date}__\n**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)""
     await edit_or_reply(event, msg)
 
 
