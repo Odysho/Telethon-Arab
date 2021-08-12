@@ -45,8 +45,8 @@ plugin_category = "bot"
 
 
 @iqthon.iq_cmd(
-    pattern="iytdl(?:\s|$)([\s\S]*)",
-    command=("iytdl", plugin_category),
+    pattern="^يوتيوب\s+([\s\S]*)",
+    command=("يوتيوب", plugin_category),
     info={
         "header": "ytdl with inline buttons.",
         "description": "To search and download youtube videos by inline buttons.",
