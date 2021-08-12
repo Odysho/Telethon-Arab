@@ -116,8 +116,7 @@ async def ban_starters(event):
         return await edit_delete(event, "**▾∮ليس لديك مستخدمين في بوتك!⚠️ **")
     msg = "**▾∮اليكَ قائمة مستخدمين بوتك 🔖↶**\n\n**"
     for user in ulist:
-        msg += f"**▾∮الاسم ⪼ **`{user.first_name}`\n**▾∮الايدي ⪼ **`{user.user_id}`\n**▾∮المعرف ⪼** @{user.username}\n**▾∮تاريخ الاستخدام ⪼** __{user.date}__\n**▾∮الرابط ⪼** 「{_format.mentionuser(user.first_name , user.user_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
-    await edit_or_reply(event, msg)
+"**▾∮الاسم ⪼ **`{user.first_name}`\n**▾∮الايدي ⪼ **`{user.user_id}`\n**▾∮المعرف ⪼** @{user.username}\n**▾∮تاريخ الاستخدام ⪼** __{user.date}__\n**▾∮الرابط ⪼** 「{_format.mentionuser(user.first_name , user.user_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)\n\n"    await edit_or_reply(event, msg)
 
 
 @iqthon.iq_cmd(
@@ -129,11 +128,11 @@ async def ban_botpms(event):
     reply_to = await reply_id(event)
     if not user_id:
         return await event.client.send_message(
-            event.chat_id, "**⌔︙ لايمكـنني العثـور على المسـتخدم  🚹 ⚠️**", reply_to=reply_to
+            event.chat_id, "**▾∮لم استطع ايجاد المستخدم لحظره ✘**", reply_to=reply_to
         )
     if not reason:
         return await event.client.send_message(
-            event.chat_id, "**⌔︙ لحـظر هـذا الشخـص قـم بكتـابة السبـب بجـانب الامـر  🔙**", reply_to=reply_to
+            event.chat_id, "**▾∮اكتب سبب حظره بعد الامر مثل↶**\n`/ban @nneee مزعج،ممل ..الخ`", reply_to=reply_to
         )
     try:
         user = await event.client.get_entity(user_id)
@@ -198,7 +197,7 @@ async def ban_starters(event):
         return await edit_delete(event, "**⌔︙ لا يوجـد شخص محـظور في البـوت الـى الان 👤**")
     msg = "**المسـتخدميـن المحـظورين في بـوتك هـم :\n\n**"
     for user in ulist:
-        msg += f"**▾∮الاسم ⪼ **`{user.first_name}`\n**▾∮الايدي ⪼ **`{user.chat_id}`\n**▾∮المعرف ⪼** @{user.username}\n**▾∮تاريخ الحظر ⪼** __{user.date}__\n**السبب ⪼** {user.reason}\n**▾∮الرابط ⪼** 「{_format.mentionuser(user.first_name , user.chat_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
+        msg += f"**▾∮الاسم ⪼ **`{user.first_name}`\n**▾∮الايدي ⪼ **`{user.chat_id}`\n**▾∮المعرف ⪼** @{user.username}\n**▾∮تاريخ الحظر ⪼** __{user.date}__\n**السبب ⪼** {user.reason}\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
     await edit_or_reply(event, msg)
 
 
