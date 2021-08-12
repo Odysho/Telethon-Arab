@@ -54,32 +54,31 @@ def ibuild_keyboard(buttons):
 
 def main_menu():
     print(GRP_INFO)
-    text = f"تليثون العرب\
-        \nللأوامر {mention}"
+    text = f"**▾∮ مرحبا عزيزي {mention}**\n**▾اليكَ قائمة بازرار مضمنة لاوامر ↫** [πøνεʍβεƦ ] (https://t.me/nneee)\n\n"
     buttons = [
         (
             Button.inline(
-                f"⌔︙ معلومات",
+                f"معلومات الملفات 🗂",
                 data="check",
             ),
         ),
         (
             Button.inline(
-                f"👮‍♂️ اوامر الادمن ({len(GRP_INFO['admin'])})",
+                f" ملفات الادمن 👨‍💼 ({len(GRP_INFO['admin'])})",
                 data=f"admin_menu",
             ),
             Button.inline(
-                f"🤖 استخدامات البوت ({len(GRP_INFO['bot'])})",
+                f"ملفات البوت 🤖 ({len(GRP_INFO['bot'])})",
                 data=f"bot_menu",
             ),
         ),
         (
             Button.inline(
-                f"🎨 اوامر الترفيهيه ({len(GRP_INFO['fun'])})",
+                f"ملفات الالعاب والمرح ⛄️ ({len(GRP_INFO['fun'])})",
                 data=f"fun_menu",
             ),
             Button.inline(
-                f"🧩 اوامر عشوائيه ({len(GRP_INFO['misc'])})",
+                f"ملفات الميديا 🎧 ({len(GRP_INFO['misc'])})",
                 data=f"misc_menu",
             ),
         ),
