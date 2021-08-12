@@ -172,7 +172,7 @@ async def ban_botpms(event):
     if not check:
         return await event.client.send_message(
             event.chat_id,
-            f"**▾∮ تم الغاء الحظر مسبقًا للمستخدم ❕↶**\n\n**▾∮ الاسم ⪼ ** `{user.first_name}`\n**▾∮ الايدي ⪼** `{user.id}`\n**▾∮ الرابط ⪼** 「{_format.mentionuser(user.first_name , user.id)}」\n**▾∮ سبب الغاء الحظر ↫** `{check.reason}`\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)",
+            f"**▾∮ تم الغاء الحظر مسبقًا للمستخدم ❕↶**\n\n** ▾∮ المستخدم ⪼** 「{_format.mentionuser(user.first_name , user.id)}」\n",
         )
     msg = await unban_user_from_bot(user, reason, reply_to)
     await event.reply(msg)
