@@ -340,9 +340,7 @@ async def send_flood_alert(user_) -> None:
     flood_msg = (
         r"`▾∮ تحذير التكرار ⚠️`"
         "\n\n"
-        f"**▾∮  المستخدم ⪼** 「{_format.mentionuser(get_display_name(user_), user_.id)}」\n**▾∮الايدي ⪼ **`{user_.id}`\n\n**▾ المستخدم قام بتكرار الرسائل! العدد ↫** `({flood_count})`\n"
-        "`*عند الاهمال سيتم حظره تلقائي ❗️`\n**للاجراء السريع في الاسفل ↶**"
-
+        f"**▾∮  المستخدم ⪼** 「{_format.mentionuser(get_display_name(user_), user_.id)}」\n**▾∮الايدي ⪼ **`{user_.id}`\n\n**▾ المستخدم قام بتكرار الرسائل! العدد ↫** `({flood_count})`\n`*عند الاهمال سيتم حظره تلقائي ❗️`\n**للاجراء السريع في الاسفل ↶**"
    )
 
     if found:
