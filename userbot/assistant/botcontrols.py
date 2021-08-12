@@ -198,7 +198,7 @@ async def ban_starters(event):
     await edit_or_reply(event, msg)
 
 @iqthon.iq_cmd(
-    pattern=f"^/التكرار (تشغيل|ايقاف)$",
+    pattern=f"^/التكرار (تشغيل|off)$",
     command=("bot_antif", plugin_category),
     info={
         "header": "To enable or disable bot antiflood.",
