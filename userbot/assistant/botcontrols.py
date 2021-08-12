@@ -213,11 +213,11 @@ async def ban_antiflood(event):
     input_str = event.pattern_match.group(1)
     if input_str == "تشغيل":
         if gvarstatus("bot_antif") is not None:
-            return await edit_delete(event, "**⌔︙تـم تشغيل حظر التكـرار بالفعل ✅**")
+            return await edit_delete(event, "**▾∮ بالفعل تم تفعيل تحذير التكرار  ✅**")
         addgvar("bot_antif", True)
-        await edit_delete(event, "**⌔︙تـم تشغيل حظر التكـرار  ✅**")
-    elif input_str == "ايقاف":
+        await edit_delete(event, "`**▾∮ تم تفعيل تحذير التكرار  ☑️**")
+    elif input_str == "off":
         if gvarstatus("bot_antif") is None:
-            return await edit_delete(event, "**⌔︙تـم تعطيل حظر التكـرار بالفعل ✅**")
+            return await edit_delete(event, "**▾∮ بالفعل تم تعطيل تحذير التكرار ❌**")
         delgvar("bot_antif")
-        await edit_delete(event, "**⌔︙تـم تعطيل حظر التكـرار  ✅**")
+        await edit_delete(event, "**▾∮ بالفعل تم تعطيل تحذير التكرار ✘**")
