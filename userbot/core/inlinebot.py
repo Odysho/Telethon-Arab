@@ -31,7 +31,7 @@ from .logger import logging
 LOGS = logging.getLogger(__name__)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-CATLOGO = "https://telegra.ph/file/1bf9c1b0a084c258b1f97.jpg"
+CATLOGO = "https://telegra.ph/file/ac1a7db2e66ab5b16da5c.jpg"
 tr = Config.COMMAND_HAND_LER
 
 def getkey(val):
