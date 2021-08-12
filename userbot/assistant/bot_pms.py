@@ -400,7 +400,7 @@ async def bot_pm_ban_cb(c_q: CallbackQuery):
     except Exception as e:
         await c_q.answer(f"**⌔︙عـذرا هنـاك خطـأ 🚫 :**\n{str(e)}")
     else:
-        await c_q.answer(f"جاري حظر المستخدم ↫ `{user_name}`", alert=False)
+        await c_q.answer(f"جاري حظر المستخدم ↫ `{user_id}`", alert=False)
         await ban_user_from_bot(user, "لا يسمح بتكرار الرسائل!")
         await c_q.edit(f"▾∮ تم حظر المستخدم بسبب التكرار❗️ ↶**\n**▾∮الاسم ⪼ **`{user_name}`\n**▾∮الايدي ⪼ **`{user_id}`\n**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}")
 
