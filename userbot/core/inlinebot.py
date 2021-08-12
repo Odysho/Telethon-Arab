@@ -354,7 +354,7 @@ async def inline_handler(event):  # sourcery no-metrics
 
             buttons = [Button.inline("اظهار الرسالة 🔐", data=f"secret_{timestamp}")]
             result = builder.article(
-                title="ارسال همسة سرية الى {Memian}",
+                title="ارسال همسة سرية الى ",
                 text=f"🔒 هذه همسة سرية الى {Memian}, هو فقط من يستطيع رؤيتها",
                 buttons=buttons,
             )
