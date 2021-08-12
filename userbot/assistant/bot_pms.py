@@ -271,7 +271,7 @@ async def handler(event):
                         return
                     await event.client.send_message(
                         Config.OWNER_ID,
-                f"▾∮ قام المستخدم ↫  「{_format.mentionuser(get_display_name(chat) , chat.id)}」 بحذف الرسالة ↧",
+                f"▾∮ قام المستخدم ↫  「{_format.mentionuser(user_name , user_id)}」 بحذف الرسالة ↧",
                         reply_to=reply_msg,
                     )
             except Exception as e:
@@ -280,7 +280,7 @@ async def handler(event):
 
 
 @iqthon.bot_cmd(
-    pattern=f"^info$",
+    pattern=f"^/info$",
     from_users=Config.OWNER_ID,
 )
 async def bot_start(event):
@@ -405,8 +405,8 @@ async def bot_pm_ban_cb(c_q: CallbackQuery):
         await c_q.answer(f"Error:\n{str(e)}")
     else:
         await c_q.answer(f"Banning UserID -> {user_id} ...", alert=False)
-        await ban_user_from_bot(user, "Spamming Bot")
-        await c_q.edit(f"✅ **Successfully Banned**  User ID: {user_id}")
+        await ban_user_from_bot(user, "قمت بتكرار الرسائل!")
+        await c_q.edit(f"▾∮ تم حظر المستخدم بسبب التكرار❗️ ↶**\n**▾∮الاسم ⪼ **`{user_name}`\n**▾∮الايدي ⪼ **`{user_id}`\n**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}")
 
 
 def time_now() -> Union[float, int]:
@@ -441,10 +441,10 @@ def is_flood(uid: int) -> Optional[bool]:
 @check_owner
 async def settings_toggle(c_q: CallbackQuery):
     if gvarstatus("bot_antif") is None:
-        return await c_q.answer(f"Bot Antiflood was already disabled.", alert=False)
+        return await c_q.answer(f"▾∮ تحذير التكرار فعلا غير مفعل ❓**", alert=False)
     delgvar("bot_antif")
-    await c_q.answer(f"Bot Antiflood disabled.", alert=False)
-    await c_q.edit("BOT_ANTIFLOOD is now disabled !")
+    await c_q.answer(f"▾∮ تم ايقاف تحذير التكرار ❗️**", alert=False)
+    await c_q.edit("▾∮ تحذير التكرار غير مفعل الان  ✅**")
 
 
 @iqthon.bot_cmd(incoming=True, func=lambda e: e.is_private)
