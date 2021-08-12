@@ -138,7 +138,7 @@ async def ban_botpms(event):
         user = await event.client.get_entity(user_id)
         user_id = user.id
     except Exception as e:
-        return await event.reply(f"**⌔︙عـذرا هنـاك خطـأ 🚫 :**\n`{str(e)}`")
+        return await event.reply(f"**▾∮هنالك خطأ ... تحقق ↻**\n`{str(e)}`")
     if user_id == Config.OWNER_ID:
         return await event.reply("**⌔︙لاأستطيـع حظـر مالـك البـوت الشخـصي. 🛂**")
     check = check_is_black_list(user.id)
