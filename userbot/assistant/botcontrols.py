@@ -46,21 +46,21 @@ async def bot_help(event):
 async def bot_broadcast(event):
     replied = await event.get_reply_message()
     if not replied:
-        return await event.reply("**⌔︙ يرجى الرد على الرسالة للأذاعة 📣!**")
+        return await event.reply("**▾∮قم بالرد ع الرسالة لاذاعتها اولًا! 📫**")
     start_ = datetime.now()
-    br_cast = await replied.reply("**⌔︙ جـاري الاذاعة لجمـيع الأعضاء 🚹**")
+    br_cast = await replied.reply("**▾∮جاري تحضير الرسالة لايذاعها! 📬**")
     blocked_users = []
     count = 0
     bot_users_count = len(get_all_starters())
     if bot_users_count == 0:
-        return await event.reply("**⌔︙ لا يوجد اي شخص يستخدم بوتك**")
+        return await event.reply("**▾∮ليس لديك مستخدمين في بوتك!⚠️ **")
     users = get_all_starters()
     if users is None:
-        return await event.reply("**⌔︙ هناك خطأ في فحص قائـمة  المستخدمين 🚸**")
+        return await event.reply("**▾∮لم يستطيع جلب قائمة للمستخدمين ✘ **")
     for user in users:
         try:
             await event.client.send_message(
-                int(user.user_id), "⌔︙ 🔊 تم استلام اذاعه جديدة."
+                int(user.user_id), "**▾∮عزيزي تسلمت رسالة جديدة 📢 **"
             )
             await event.client.send_message(int(user.user_id), replied)
             await asyncio.sleep(0.8)
@@ -72,14 +72,14 @@ async def bot_broadcast(event):
             LOGS.error(str(e))
             if BOTLOG:
                 await event.client.send_message(
-                    BOTLOG_CHATID, f"**⌔︙هنـاك خطـأ في الأذاعـة 🔊 🆘**\n`{str(e)}`"
+                    BOTLOG_CHATID, f"**▾∮حصل خطأ عند اذاعة رسالتك ✘ **\n`{str(e)}`"
                 )
         else:
             count += 1
             if count % 5 == 0:
                 try:
                     prog_ = (
-                        "**⌔︙جـاري الأذاعـة 🔊 ..**\n\n"
+                        "**▾∮جاري تحضير الرسالة لايذاعها! 📬**\n\n"
                         + progress_str(
                             total=bot_users_count,
                             current=count + len(blocked_users),
@@ -91,11 +91,11 @@ async def bot_broadcast(event):
                 except FloodWaitError as e:
                     await asyncio.sleep(e.seconds)
     end_ = datetime.now()
-    b_info = f"⌔︙ 🔊 تـم بنجاح الأذاعه الى :  <b>{count} عدد من المستخدمين 🚹.</b>"
+    b_info = f"<b>▾∮تم ارسال رسالتك الى «</b><i>{count}</i><b>» مستخدمين 📣</b>"
     if len(blocked_users) != 0:
-        b_info += f"\n⌔︙ 🚫  <b>{len(blocked_users)} </b> مجموع الاشخاص الذين قـامو بحـضر بوتـك 🆘."
+        b_info += f"\n<b>▾∮مجموع المستخدمين ↫ «</b><code>{len(blocked_users)}</code><b>» قاموا بحظر البوت ✕ </b>"
     b_info += (
-        f"\n⌔︙⏳  <code> الـوقت المسـتغرق : {time_formatter((end_ - start_).seconds)}</code>."
+        f"\n⌔︙⏳  <i>▾∮استغرقت عملية الاذاعة ↫ </i> <code>{time_formatter((end_ - start_).seconds)}</code>"
     )
     await br_cast.edit(b_info, parse_mode="html")
 
