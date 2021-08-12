@@ -198,7 +198,7 @@ async def ban_starters(event):
         return await edit_delete(event, "**⌔︙ لا يوجـد شخص محـظور في البـوت الـى الان 👤**")
     msg = "**المسـتخدميـن المحـظورين في بـوتك هـم :\n\n**"
     for user in ulist:
-        msg += f"• 👤 {_format.mentionuser(user.first_name , user.chat_id)}\n**⌔︙ الايدي:** `{user.chat_id}`\n**⌔︙ المعرف:** @{user.username}\n**⌔︙ التاريخ: **{user.date}\n**⌔︙ السبب:** {user.reason}\n\n"
+        msg += f"**▾∮الاسم ⪼ **`{user.user_id}`\n**▾∮الايدي ⪼ **`{user_id}`\n**▾∮المعرف ⪼** @{user.username}\n**▾∮تاريخ الحظر ⪼** __{user.date}__\n**السبب ⪼** {user.reason}\n**▾∮الرابط ⪼** 「{_format.mentionuser(user_name , user_id)}」\n\n**⍣ⵧⵧⵧⵧⵧɴᴏᴠᴇᴍʙᴇʀⵧⵧⵧⵧⵧ⍣**\n[▾∮ՏøuƦcε πøνεʍβεƦ 🌦](https://t.me/nneee)"
     await edit_or_reply(event, msg)
 
 
