@@ -338,13 +338,7 @@ async def send_flood_alert(user_) -> None:
         flood_count = FloodConfig.ALERT[user_.id]["count"] = 1
 
     flood_msg = (
-        r"⚠️ **#Flood_Warning**"
-        "\n\n"
-        f"  ID: `{user_.id}`\n"
-        f"  Name: {get_display_name(user_)}\n"
-        f"  👤 User: {_format.mentionuser(get_display_name(user_), user_.id)}"
-        f"\n\n**Is spamming your bot !** ->  [ Flood rate ({flood_count}) ]\n"
-        "__Quick Action__: Ignored from bot for a while."
+        r"`▾∮ تحذير التكرار ⚠️`\n**▾∮  المستخدم ⪼** 「{_format.mentionuser(get_display_name(user_), user_.id)}」\n**▾∮الايدي ⪼ **`{user_.id}`\n\n**▾ المستخدم قام بتكرار الرسائل! العدد ↫** `({flood_count})`\n`*عند الاهمال سيتم حظره تلقائي ❗️`\n**للاجراء السريع في الاسفل ↶**"
     )
 
     if found:
@@ -441,10 +435,10 @@ def is_flood(uid: int) -> Optional[bool]:
 @check_owner
 async def settings_toggle(c_q: CallbackQuery):
     if gvarstatus("bot_antif") is None:
-        return await c_q.answer(f"▾∮ تحذير التكرار فعلا غير مفعل ❓**", alert=False)
+        return await c_q.answer(f"**▾∮ تحذير التكرار فعلا غير مفعل ❓**", alert=False)
     delgvar("bot_antif")
-    await c_q.answer(f"▾∮ تم ايقاف تحذير التكرار ❗️**", alert=False)
-    await c_q.edit("▾∮ تحذير التكرار غير مفعل الان  ✅**")
+    await c_q.answer(f"**▾∮ تم ايقاف تحذير التكرار ❗️**", alert=False)
+    await c_q.edit("**▾∮ تحذير التكرار غير مفعل الان  ✅**")
 
 
 @iqthon.bot_cmd(incoming=True, func=lambda e: e.is_private)
