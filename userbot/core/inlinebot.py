@@ -246,11 +246,11 @@ async def inline_handler(event):  # sourcery no-metrics
     if query_user_id == Config.OWNER_ID or query_user_id in Config.SUDO_USERS:
         hmm = re.compile("secret (.*) (.*)")
         match = re.findall(hmm, query)
-        if query.startswith("**iqthonbot"):
+        if query.startswith("**November BOT**"):
             buttons = [
                 (
                     Button.inline("Stats", data="stats"),
-                    Button.url("Repo", "https://github.com/telethontesthelp/Telethon-arabb"),
+                    Button.url("Repo", "t.me/nneee"),
                 )
             ]
             ALIVE_PIC = gvarstatus("ALIVE_PIC")
@@ -274,13 +274,13 @@ async def inline_handler(event):  # sourcery no-metrics
             elif I_IMG:
                 result = builder.document(
                     I_IMG,
-                    title="Alive cat",
+                    title="november Alive",",
                     text=query,
                     buttons=buttons,
                 )
             else:
                 result = builder.article(
-                    title="Alive cat",
+                    title="november Alive",",
                     text=query,
                     buttons=buttons,
                 )
@@ -328,37 +328,34 @@ async def inline_handler(event):  # sourcery no-metrics
             except Exception:
                 jsondata = False
             try:
-                # if u is user id
                 u = int(user)
                 try:
                     u = await event.client.get_entity(u)
                     if u.username:
-                        sandy = f"@{u.username}"
+                        Memian = f"@{u.username}"
                     else:
-                        sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                        Memian = f"[{u.first_name}](tg://user?id={u.id})"
                 except ValueError:
-                    # ValueError: Could not find the input entity
-                    sandy = f"[user](tg://user?id={u})"
+                    Memian = f"[user](tg://user?id={u})"
             except ValueError:
-                # if u is username
                 try:
                     u = await event.client.get_entity(user)
                 except ValueError:
                     return
                 if u.username:
-                    sandy = f"@{u.username}"
+                    Memian = f"@{u.username}"
                 else:
-                    sandy = f"[{u.first_name}](tg://user?id={u.id})"
+                    Memian = f"[{u.first_name}](tg://user?id={u.id})"
                 u = int(u.id)
             except Exception:
                 return
             timestamp = int(time.time() * 2)
             newsecret = {str(timestamp): {"userid": u, "text": txct}}
 
-            buttons = [Button.inline("show message 🔐", data=f"secret_{timestamp}")]
+            buttons = [Button.inline("اظهار الرسالة 🔐", data=f"secret_{timestamp}")]
             result = builder.article(
-                title="secret message",
-                text=f"🔒 A whisper message to {sandy}, Only he/she can open it.",
+                title="ارسال همسة سرية الى {Memian}",
+                text=f"🔒 هذه همسة سرية الى {Memian}, هو فقط من يستطيع رؤيتها",
                 buttons=buttons,
             )
             await event.answer([result] if result else None)
