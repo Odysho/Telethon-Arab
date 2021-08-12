@@ -91,7 +91,7 @@ async def bot_broadcast(event):
                 except FloodWaitError as e:
                     await asyncio.sleep(e.seconds)
     end_ = datetime.now()
-    b_info = f"<b>▾∮تم ارسال رسالتك الى «</b><i>{count}</i><b>» مستخدمين 📣</b>"
+    b_info = f"<b>▾∮تم ارسال رسالتك الى «</b><i>{count}</i><b>» مستخدم 📣</b>"
     if len(blocked_users) != 0:
         b_info += f"\n<b>▾∮مجموع المستخدمين ↫ «</b><code>{len(blocked_users)}</code><b>» قاموا بحظر البوت ✕ </b>"
     b_info += (
@@ -141,7 +141,7 @@ async def ban_botpms(event):
     except Exception as e:
         return await event.reply(f"**▾∮ هنالك خطأ ... تحقق ↻**\n`{str(e)}`")
     if user_id == Config.OWNER_ID:
-        return await event.reply("**▾∮ مالك البوت!\n لا استطيع حظرة ♕**")
+        return await event.reply("**▾∮ كيف لي ان احظر المالك!♕**")
     check = check_is_black_list(user.id)
     if check:
         return await event.client.send_message(
@@ -188,7 +188,7 @@ async def ban_botpms(event):
     },
 )
 async def ban_starters(event):
-    "**للحصول على قائمة بالمستخدمين المحظورين في البوت**"
+    "**للحصول على قائمة بالمستخدمين المحظورين من البوت**"
     ulist = get_all_bl_users()
     if len(ulist) == 0:
         return await edit_delete(event, "**▾∮ لا يوجد مستخدمين محظورين من البوت ✓**")
